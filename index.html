@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173a34" />
+    <meta name="description" content="Considered jewelry for everyday rituals. Explore necklaces, earrings, rings, and more." />
+    <title>Ornament Studio | Objects to keep close</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">Complimentary shipping on orders over $75 <span>·</span> Thoughtfully made, always</div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Ornament Studio home">ornament<span>studio</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#shop" class="nav-active">Shop all</a>
+        <a href="#shop" data-nav-category="Necklaces">Necklaces</a>
+        <a href="#shop" data-nav-category="Earrings">Earrings</a>
+        <a href="#shop" data-nav-category="Rings">Rings</a>
+        <a href="#shop" data-nav-category="Nose rings">Nose rings</a>
+      </nav>
+      <div class="header-actions">
+        <button class="text-action" id="search-focus" type="button">Search</button>
+        <button class="bag-button" id="bag-button" type="button" aria-label="Shopping bag, 0 items">Bag <span id="bag-count">0</span></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> Small things, lasting feeling</p>
+          <h1 id="hero-title">A little gold<br />goes a <em>long way.</em></h1>
+          <p class="hero-description">Everyday pieces with a point of view. Made for the getting-ready playlist, the last-minute plans, and everything in between.</p>
+          <a class="primary-button" href="#shop">Explore the collection <span aria-hidden="true">↘</span></a>
+          <div class="hero-note"><span class="note-mark">O</span><span>Designed to be worn<br />on repeat.</span></div>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1400&q=85" alt="Gold statement earrings arranged on a warm sculptural surface" />
+          <div class="hero-image-caption"><span>01 / 04</span><span>Made for your everyday</span></div>
+          <div class="hero-stamp" aria-hidden="true">wear<br />what<br /><i>moves</i><br />you</div>
+        </div>
+      </section>
+
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
+        <div class="category-row" role="group" aria-label="Filter by category">
+          <button class="category-chip is-active" data-category="All pieces" type="button">All pieces <span>12</span></button>
+          <button class="category-chip" data-category="Necklaces" type="button">Necklaces</button>
+          <button class="category-chip" data-category="Earrings" type="button">Earrings</button>
+          <button class="category-chip" data-category="Rings" type="button">Rings</button>
+          <button class="category-chip" data-category="Nose rings" type="button">Nose rings</button>
+          <button class="category-chip" data-category="Bracelets" type="button">Bracelets</button>
+        </div>
+
+        <div class="shop-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">A good place to start</p>
+            <h2 id="shop-title">The everyday edit<span class="title-dot">.</span></h2>
+          </div>
+          <div class="shop-tools">
+            <label class="search-wrap" for="product-search"><span class="sr-only">Search ornaments</span><span class="search-glyph" aria-hidden="true"></span><input id="product-search" type="search" placeholder="Find your something" autocomplete="off" /></label>
+            <label class="sort-wrap" for="sort-products"><span class="sr-only">Sort products</span><select id="sort-products"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select></label>
+          </div>
+        </div>
+        <div class="results-line"><span id="result-count">12 pieces</span><span>Free shipping over $75</span></div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden>No pieces found. Try another search or category.</p>
+      </section>
+
+      <section class="promise-strip" aria-label="Our promise">
+        <div><span class="promise-icon">01</span><p>Made to live in</p></div>
+        <div><span class="promise-icon">02</span><p>Kind to sensitive skin</p></div>
+        <div><span class="promise-icon">03</span><p>A little more considered</p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-mark" href="#top">ornament<span>studio</span></a>
+      <p>Objects to keep close. Made with care, chosen by you.</p>
+      <span class="copyright">© 2026 Ornament Studio</span>
+    </footer>
+    <dialog class="try-on-dialog" id="try-on-dialog" aria-labelledby="try-on-title">
+      <div class="try-on-shell">
+        <div class="try-on-heading">
+          <div><p class="eyebrow section-eyebrow">A closer look</p><h2 id="try-on-title">See it on you<span class="title-dot">.</span></h2></div>
+          <button class="dialog-close" id="close-try-on" type="button" aria-label="Close try-on">×</button>
+        </div>
+        <p class="selected-piece">Selected piece: <strong id="try-on-product-name"></strong></p>
+        <div class="camera-stage">
+          <video id="camera-video" autoplay muted playsinline aria-hidden="true"></video>
+          <img id="try-on-preview" alt="Live camera preview with necklace placement overlay" />
+          <span class="camera-guide" aria-hidden="true"></span>
+        </div>
+        <p class="camera-status" id="camera-status" role="status" aria-live="polite">Your camera is only used for this live preview. Frames are not saved.</p>
+        <canvas id="capture-canvas" hidden></canvas>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
