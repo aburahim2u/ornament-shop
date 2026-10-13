@@ -25,12 +25,16 @@ const cameraVideo = document.querySelector('#camera-video');
 const tryOnPreview = document.querySelector('#try-on-preview');
 const cameraStatus = document.querySelector('#camera-status');
 const captureCanvas = document.querySelector('#capture-canvas');
+const tryOnProductName = document.querySelector('#try-on-product-name');
+const tryOnNecklaceOptions = document.querySelector('#try-on-necklace-options');
+const necklaceProducts = products.filter((product) => product.category === 'Necklaces');
 let activeCategory = 'All pieces';
 let bagItems = 0;
 let toastTimeout;
 let cameraStream;
 let cameraTimer;
 let framePending = false;
+let selectedNecklaceIds = [];
 
 function renderProducts() {
   const query = searchInput.value.trim().toLowerCase();
@@ -124,7 +128,9 @@ grid.addEventListener('click', (event) => {
 });
 
 async function openTryOn(product) {
-  document.querySelector('#try-on-product-name').textContent = product.name;
+  selectedNecklaceIds = [product.id];
+  renderTryOnNecklaceOptions();
+  updateSelectedNecklaceLabel();
   tryOnDialog.showModal();
   cameraStatus.textContent = 'Requesting camera access...';
   tryOnPreview.removeAttribute('src');
@@ -142,8 +148,8 @@ async function openTryOn(product) {
     cameraVideo.srcObject = cameraStream;
     await cameraVideo.play();
     cameraStatus.textContent = 'Center your face and shoulders in the frame.';
-    cameraTimer = window.setInterval(() => processCameraFrame(product.id), 450);
-    processCameraFrame(product.id);
+    cameraTimer = window.setInterval(processCameraFrame, 450);
+    processCameraFrame();
   } catch (error) {
     cameraStatus.textContent = error.name === 'NotAllowedError'
       ? 'Camera permission was not granted. Allow camera access and try again.'
@@ -151,7 +157,37 @@ async function openTryOn(product) {
   }
 }
 
-async function processCameraFrame(productId) {
+function renderTryOnNecklaceOptions() {
+  tryOnNecklaceOptions.innerHTML = necklaceProducts.map((product) => `
+    <label class="necklace-option">
+      <input type="checkbox" value="${product.id}" ${selectedNecklaceIds.includes(product.id) ? 'checked' : ''} />
+      <span>${product.name}</span>
+    </label>`).join('');
+}
+
+function updateSelectedNecklaceLabel() {
+  const selectedNames = necklaceProducts
+    .filter((product) => selectedNecklaceIds.includes(product.id))
+    .map((product) => product.name);
+  tryOnProductName.textContent = selectedNames.join(' + ');
+}
+
+tryOnNecklaceOptions.addEventListener('change', (event) => {
+  if (event.target.type !== 'checkbox') return;
+  const checkedIds = [...tryOnNecklaceOptions.querySelectorAll('input:checked')]
+    .map((input) => Number(input.value));
+  if (checkedIds.length === 0) {
+    event.target.checked = true;
+    cameraStatus.textContent = 'Select at least one necklace to preview.';
+    return;
+  }
+  selectedNecklaceIds = checkedIds;
+  updateSelectedNecklaceLabel();
+  cameraStatus.textContent = `Previewing ${checkedIds.length} ${checkedIds.length === 1 ? 'necklace' : 'necklaces'} together.`;
+  processCameraFrame();
+});
+
+async function processCameraFrame() {
   if (!cameraVideo.videoWidth || framePending) return;
   framePending = true;
   captureCanvas.width = cameraVideo.videoWidth;
@@ -166,7 +202,7 @@ async function processCameraFrame(productId) {
     const response = await fetch('/api/try-on', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: captureCanvas.toDataURL('image/jpeg', 0.72), product_id: productId }),
+      body: JSON.stringify({ image: captureCanvas.toDataURL('image/jpeg', 0.72), product_ids: selectedNecklaceIds }),
     });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || 'Try-on processing failed.');

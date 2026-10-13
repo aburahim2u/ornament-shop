@@ -88,11 +88,14 @@
           <div><p class="eyebrow section-eyebrow">A closer look</p><h2 id="try-on-title">See it on you<span class="title-dot">.</span></h2></div>
           <button class="dialog-close" id="close-try-on" type="button" aria-label="Close try-on">×</button>
         </div>
-        <p class="selected-piece">Selected piece: <strong id="try-on-product-name"></strong></p>
+        <p class="selected-piece">Selected necklaces: <strong id="try-on-product-name"></strong></p>
+        <fieldset class="necklace-selector">
+          <legend>Layer your look</legend>
+          <div id="try-on-necklace-options"></div>
+        </fieldset>
         <div class="camera-stage">
           <video id="camera-video" autoplay muted playsinline aria-hidden="true"></video>
           <img id="try-on-preview" alt="Live camera preview with necklace placement overlay" />
-          <span class="camera-guide" aria-hidden="true"></span>
         </div>
         <p class="camera-status" id="camera-status" role="status" aria-live="polite">Your camera is only used for this live preview. Frames are not saved.</p>
         <canvas id="capture-canvas" hidden></canvas>
