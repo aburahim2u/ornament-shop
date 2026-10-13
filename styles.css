@@ -135,10 +135,15 @@ h1, h2, p { margin-top: 0; }
 .dialog-close { width: 35px; height: 35px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; font-size: 23px; line-height: 1; cursor: pointer; }
 .selected-piece { margin: 12px 0 14px; color: #72766e; font-size: 11px; }
 .selected-piece strong { color: var(--forest); font-weight: 600; }
+.necklace-selector { margin: 0 0 14px; padding: 10px 12px 12px; border: 1px solid var(--line); }
+.necklace-selector legend { padding: 0 5px; color: #72766e; font-size: 10px; }
+#try-on-necklace-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.necklace-option { display: inline-flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid var(--line); color: #50584f; background: #fffefa; font-size: 10px; cursor: pointer; }
+.necklace-option:has(input:checked) { border-color: var(--forest); color: var(--forest); background: #f0f2ec; }
+.necklace-option input { accent-color: var(--forest); }
 .camera-stage { position: relative; display: grid; width: min(100%, calc(min(55vh, 420px) * 4 / 3)); height: auto; aspect-ratio: 4 / 3; min-height: 0; margin: 0 auto; place-items: center; overflow: hidden; background: #17221e; }
 .camera-stage video { position: absolute; width: 1px; height: 1px; opacity: 0; }
 .camera-stage img { width: 100%; height: 100%; object-fit: contain; }
-.camera-guide { position: absolute; top: 7%; left: 50%; width: 36%; height: 84%; border: 1px solid rgb(255 255 255 / 35%); border-radius: 48% 48% 42% 42%; pointer-events: none; transform: translateX(-50%); }
 .camera-status { min-height: 18px; margin: 13px 0 0; color: #626b62; font-size: 10px; line-height: 1.5; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -183,6 +188,8 @@ h1, h2, p { margin-top: 0; }
   .try-on-dialog { width: calc(100vw - 20px); max-height: calc(100vh - 20px); }
   .try-on-shell { padding: 17px; }
   .try-on-heading h2 { font-size: 29px; }
+  .necklace-selector { padding-right: 8px; padding-left: 8px; }
+  .necklace-option { padding: 6px 7px; font-size: 9px; }
   .camera-stage { min-height: 190px; }
   .promise-strip { grid-template-columns: 1fr; gap: 17px; padding: 23px 8%; }
   .promise-strip > div { justify-content: flex-start; }
