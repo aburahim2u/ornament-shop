@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 912">
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#efe3d1"/><stop offset="1" stop-color="#c9a98e"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffefb2"/><stop offset=".4" stop-color="#aa712d"/><stop offset=".68" stop-color="#f6dc87"/><stop offset="1" stop-color="#885726"/></linearGradient>
+    <radialGradient id="stone" cx=".35" cy=".25"><stop stop-color="#ffc681"/><stop offset=".48" stop-color="#bf532c"/><stop offset="1" stop-color="#762b22"/></radialGradient>
+  </defs>
+  <path fill="url(#paper)" d="M0 0h760v912H0z"/>
+  <path d="M0 704c208-89 491-44 760 20v188H0z" fill="#f4e9da" opacity=".5"/>
+  <ellipse cx="380" cy="511" rx="218" ry="271" fill="none" stroke="#79552b" stroke-width="26" opacity=".17"/>
+  <ellipse cx="380" cy="491" rx="205" ry="266" fill="none" stroke="url(#gold)" stroke-width="23"/>
+  <path d="M210 337c35-65 88-112 150-136m-115 429c21 42 49 78 83 102" fill="none" stroke="#fff0ba" stroke-width="7" stroke-linecap="round"/>
+  <path d="M380 217c-46 0-76 37-76 80 0 49 76 122 76 122s76-73 76-122c0-43-30-80-76-80z" fill="url(#gold)"/>
+  <path d="M380 237c-34 0-56 28-56 61 0 35 56 89 56 89s56-54 56-89c0-33-22-61-56-61z" fill="url(#stone)" stroke="#f4d88c" stroke-width="5"/>
+  <path d="M351 278c7-15 19-22 32-22" fill="none" stroke="#ffe0a5" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+</svg>

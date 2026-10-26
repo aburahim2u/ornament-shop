@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 912">
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#e8dfd5"/><stop offset="1" stop-color="#c9b9ae"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff1b7"/><stop offset=".42" stop-color="#b47a32"/><stop offset=".7" stop-color="#f8df8b"/><stop offset="1" stop-color="#976229"/></linearGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe2cd"/><stop offset=".45" stop-color="#c27d61"/><stop offset=".7" stop-color="#f1c1a6"/><stop offset="1" stop-color="#8e5544"/></linearGradient>
+  </defs>
+  <path fill="url(#paper)" d="M0 0h760v912H0z"/>
+  <circle cx="140" cy="760" r="105" fill="#f6eee4" opacity=".5"/>
+  <ellipse cx="382" cy="500" rx="221" ry="281" fill="none" stroke="#66503e" stroke-width="22" opacity=".16"/>
+  <ellipse cx="368" cy="482" rx="211" ry="273" fill="none" stroke="url(#gold)" stroke-width="19"/>
+  <ellipse cx="393" cy="500" rx="187" ry="249" fill="none" stroke="url(#rose)" stroke-width="15"/>
+  <ellipse cx="382" cy="521" rx="162" ry="224" fill="none" stroke="url(#gold)" stroke-width="12"/>
+  <path d="M197 340c36-69 86-113 146-134m-112 420c19 48 45 86 79 116" fill="none" stroke="#fff1c0" stroke-width="6" stroke-linecap="round"/>
+  <path d="M527 357c27 43 43 91 48 143" fill="none" stroke="#fce7b0" stroke-width="5" stroke-linecap="round"/>
+</svg>

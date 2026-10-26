@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 912">
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#e8e4d9"/><stop offset="1" stop-color="#c0c9bf"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2bb"/><stop offset=".34" stop-color="#a76f2b"/><stop offset=".68" stop-color="#f3d982"/><stop offset="1" stop-color="#845322"/></linearGradient>
+  </defs>
+  <path fill="url(#paper)" d="M0 0h760v912H0z"/>
+  <circle cx="596" cy="204" r="123" fill="#f6f0e2" opacity=".55"/>
+  <path d="M234 623C124 493 177 309 307 247c105-50 238-5 270 94 24 73 4 143-39 194" fill="none" stroke="#695037" stroke-width="55" stroke-linecap="round" opacity=".16"/>
+  <path d="M234 603C124 473 177 289 307 227c105-50 238-5 270 94 24 73 4 143-39 194" fill="none" stroke="url(#gold)" stroke-width="45" stroke-linecap="round"/>
+  <path d="M217 531c-4-87 34-171 105-222" fill="none" stroke="#fff1be" stroke-width="8" stroke-linecap="round"/>
+  <path d="M553 492c-10 16-21 31-34 44" fill="none" stroke="#fff0b4" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="228" cy="602" r="16" fill="#e1b860" stroke="#fff0b4" stroke-width="5"/>
+  <circle cx="537" cy="510" r="16" fill="#e1b860" stroke="#fff0b4" stroke-width="5"/>
+</svg>
